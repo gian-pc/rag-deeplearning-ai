@@ -2,3 +2,10 @@ openai
 python-dotenv
 jupyter
 notebook
+joblib
+scikit-learn
+pandas
+python-dateutil
+
+numpy
+sentence-transformers
