@@ -6,12 +6,26 @@ load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def generate_response(user_message, system_message="You are a helpful assistant."):
+def generate_with_single_input(prompt, max_tokens=1024, model="gpt-4o-mini"):
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model=model,
+        max_tokens=max_tokens,
         messages=[
-            {"role": "system", "content": system_message},
-            {"role": "user", "content": user_message}
+            {"role": "user", "content": prompt}
         ]
     )
-    return response.choices[0].message.content
+    return {
+        "role": "assistant",
+        "content": response.choices[0].message.content
+    }
+
+def generate_with_multiple_input(messages, max_tokens=1024, model="gpt-4o-mini"):
+    response = client.chat.completions.create(
+        model=model,
+        max_tokens=max_tokens,
+        messages=messages
+    )
+    return {
+        "role": "assistant",
+        "content": response.choices[0].message.content
+    }
