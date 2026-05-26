@@ -1,0 +1,22 @@
+# Entorno virtual
+.venv/
+
+# Variables de entorno (API keys - NUNCA subir)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Datos pesados
+datasets/*.csv
+datasets/*.json
+datasets/*.parquet
+
+# macOS
+.DS_Store
