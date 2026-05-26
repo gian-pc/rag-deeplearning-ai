@@ -20,3 +20,4 @@ datasets/*.parquet
 
 # macOS
 .DS_Store
+.idea/
